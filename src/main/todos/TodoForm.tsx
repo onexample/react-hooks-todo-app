@@ -13,7 +13,9 @@ const TodoForm: FunctionComponent<TodoFormProps> = ({ initial = '', onSubmit }) 
 
     const onFormSubmit = (event: FormEvent) => {
         event.preventDefault();
-        onSubmit(value);
+        if (value) {
+            onSubmit(value);
+        }
         setValue(initial);
     }
 
