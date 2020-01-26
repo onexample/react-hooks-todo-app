@@ -4,16 +4,16 @@ import Button from '@material-ui/core/Button';
 
 export interface TodoFormProps {
     initial?: string;
-    addTodo: (v: string) => void;
+    onSubmit: (v: string) => void;
 }
 
-const TodoForm: FunctionComponent<TodoFormProps> = ({ initial = '', addTodo }) => {
+const TodoForm: FunctionComponent<TodoFormProps> = ({ initial = '', onSubmit }) => {
 
     const [value, setValue] = useState(initial);
 
     const onFormSubmit = (event: FormEvent) => {
         event.preventDefault();
-        addTodo(value);
+        onSubmit(value);
         setValue(initial);
     }
 
