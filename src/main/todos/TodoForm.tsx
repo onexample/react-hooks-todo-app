@@ -17,17 +17,21 @@ const TodoForm: FunctionComponent<TodoFormProps> = ({ initial = '', onSubmit }) 
             onSubmit(value);
         }
         setValue(initial);
-    }
+    };
 
     return (
-        <form className="Form" onSubmit={event => onFormSubmit(event)}>
+        <form
+            data-testid='todo-form'
+            className="Form"
+            onSubmit={event => onFormSubmit(event)}
+        >
             <TextField
                 placeholder="Add todo"
                 margin="normal"
                 onChange={event => setValue(event.target.value)}
                 value={value}
             />
-            <Button  type="submit">Add</Button>
+            <Button data-testid='todo-form-btn' type="submit">Add</Button>
         </form>
     );
 }
